@@ -56,11 +56,60 @@
       //   const obj = { a: undefined }
       //   console.log('obj', obj.a)
 
-      let obj = {
-        // first-test : 'JC',
-        'first-test': 'JC',
-        first_test2: 'JC',
+      //   let obj = {
+      //     // first-test : 'JC',
+      //     'first-test': 'JC',
+      //     first_test2: 'JC',
+      //   }
+
+      // 对象 引用
+      //   var stooge = {}
+      //   var x = stooge
+      //   x.nickName = 'clg'
+      //   var nick = stooge.nickName
+      //   console.log(nick) // clg
+
+      // 对象 原型
+      Object.create = function (o) {
+        var F = function () {}
+        F.prototype = o
+        return new F()
       }
+
+      //   var test = Object.create({})
+
+      //   test['first-name'] = 'first-name'
+      //   test['middle-name'] = 'middle-name'
+      //   test.nickName = 'nick-name'
+
+      //   console.log('test', test) // test F {first-name: 'first-name', middle-name: 'middle-name', nickName: 'nick-name'}
+
+      //   var obj = {}
+      //   var test = Object.create(obj)
+
+      //   obj.profession = 'actor'
+      //   console.log('test', test.profession) // test actor
+
+      // 枚举 for in
+      //   var obj = { a: 1, b: 2, c: 3 }
+      //   for (let name in obj) {
+      //     document.writeln(name)
+      //     // if (typeof obj[name] !== 'function') {
+      //     //   console.log(name) // a, b,c
+      //     // }
+      //   }
+
+      //   // 枚举 for
+      //   let prop = ['a', 'b', 'c']
+      //   for (let i = 0; i < prop.length; i++) {
+      //     console.log(prop[i]) // a,b,c
+      //   }
+
+      // 删除
+      var obj = { a: 1, b: 2 }
+      //   delete obj.a
+      obj.a = null // obj {a: null, b: 2}
+      console.log('obj', obj) // obj {b: 2}
     </script>
   </body>
 </html>

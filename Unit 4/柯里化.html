@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function currying(fn, ...args) {
+        if (args.length >= fn.length) {
+          return fn(...args)
+        } else {
+          return (...args2) => currying(fn, ...args, ...args2)
+        }
+      }
+
+      function add(a, b, c) {
+        return a + b + c
+      }
+      const curryingFunc = currying(add)
+
+      console.log(curryingFunc(1, 2, 3)) // 6
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const add = function (a, b) {
+        console.log('开始缓存')
+        return a + b
+      }
+
+      const memorize = function (fn) {
+        const cache = {}
+
+        return function (...args) {
+          const _args = JSON.stringify(args)
+          return cache[_args] || (cache[_args] = fn.apply(fn, args))
+        }
+      }
+
+      const res = memorize(add)
+      console.log(res(2, 6)) // 8
+      console.log(res(7, 6)) // 13
+    </script>
+  </body>
+</html>

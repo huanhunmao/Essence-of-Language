@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let count = 0
+      const fib = function (n) {
+        count++
+        return n < 2 ? n : fib(n - 1) + fib(n - 2)
+      }
+
+      const fib1 = (function (n) {
+        const memo = [0, 1]
+        const fib2 = function (n) {
+          count++
+          let res = memo[n]
+          if (typeof res !== 'number') {
+            res = fib2(n - 1) + fib2(n - 2)
+            memo[n] = res
+          }
+          return res
+        }
+        return fib2
+      })()
+
+      console.log(fib(10)) // 55
+      console.log('count', count) // 177
+      //   console.log(fib1(10)) // 55
+      //   console.log('count', count) // 19
+    </script>
+  </body>
+</html>

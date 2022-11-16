@@ -8,16 +8,85 @@
   </head>
   <body>
     <script>
-      var x = 'global'
-      function f() {
-        var x = 'local'
-        function g() {
-          alert(x)
-        }
-        g()
-      }
-      f() // 'local'
+      //   var x = 'global'
+      //   function f() {
+      //     var x = 'local'
+      //     function g() {
+      //       alert(x)
+      //     }
+      //     g()
+      //   }
+      //   f() // 'local'
+
+      // 方法调用
+      //   var myObj = {
+      //     value: 0,
+      //     increment: function (inc) {
+      //       this.value += typeof inc == 'number' ? inc : 1
+      //     },
+      //   }
+
+      //   myObj.increment()
+      //   console.log(myObj.value) // 1
+
+      //   myObj.increment(2)
+      //   console.log(myObj.value) // 3
+
+      //   // 函数调用
+      //   //   function test() {
+      //   //     console.log('this', this)
+      //   //   }
+      //   //   test() // Window
+
+      //   var add = function (a, b) {
+      //     return a + b
+      //   }
+
+      //   myObj.double = function () {
+      //     const that = this
+
+      //     const helper = function () {
+      //       that.value = add(that.value, that.value)
+      //     }
+
+      //     helper()
+      //   }
+
+      //   // 方法形式调用
+      //   myObj.double()
+      //   console.log(myObj.value) // 6
+
+      // 构造器调用模式
+      //   var Quo = function (status) {
+      //     this.status = status
+      //   }
+
+      //   Quo.prototype.get_status = function () {
+      //     return this.status
+      //   }
+
+      //   // 使用 new 构造一个 实例  使用 prototype 链接到 构造函数 Quo
+      //   var quo = new Quo('success')
+      //   console.log('quo', quo)
+      //   console.log(quo.get_status()) // success
+
+      // 实现一个 new
+      //   function myNew(Fn, ...args) {
+      //     const obj = Object.create(Fn.prototype)
+      //     const res = Fn.apply(obj, args)
+      //     return res instanceof Object ? res : obj
+      //   }
+
+      //   function add(str) {
+      //     this.str = str
+      //   }
+
+      //   add.prototype.getStr = function () {
+      //     return this.str
+      //   }
+
+      //   const res = myNew(add, 'test')
+      //   console.log(res.getStr()) // test
     </script>
   </body>
 </html>
-l

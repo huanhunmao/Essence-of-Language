@@ -18,7 +18,11 @@
 
         return function (...args) {
           const _args = JSON.stringify(args)
-          return cache[_args] || (cache[_args] = fn.apply(fn, args))
+          const res = cache[_args] || (cache[_args] = fn.apply(fn, args))
+          // cache {[2,6]: 8}
+          // cache {[2,6]: 8, [7,6]: 13}
+          console.log('cache', cache)
+          return res
         }
       }
 

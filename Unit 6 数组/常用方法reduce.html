@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = ['d', 's', 'r', 'c']
+      let arr2 = arr.reduce((total, item) => {
+        console.log('total: ', total) // 计算结果  比如下面是 + 就做累和
+        console.log('item: ', item) // 从左到右遍历每一个
+        return total + item
+      }, '')
+      console.log(arr2) // dsrc
+    </script>
+  </body>
+</html>

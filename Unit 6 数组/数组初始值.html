@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1纬
+      Array.prototype.dim = function (dim, initial) {
+        let arr = []
+        for (let i = 0; i < dim; i++) {
+          arr[i] = initial
+        }
+        return arr
+      }
+
+      const arr = []
+      const test = arr.dim(10, 6)
+      console.log('test', test) // test (10) [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]
+
+      // 2维数组
+      Array.prototype.matrix = function (m, n, initial) {
+        let temp,
+          mat = []
+        for (let i = 0; i < m; i++) {
+          temp = [] // temp 初始
+
+          for (let j = 0; j < n; j++) {
+            temp[j] = initial // 更新 temp
+          }
+          mat[i] = temp // 更新 mat
+        }
+        return mat
+      }
+
+      const arr2 = []
+      const res = arr2.matrix(4, 4, 0)
+      console.log('arr2', res)
+    </script>
+  </body>
+</html>

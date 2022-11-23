@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr = [2, 24, 7, 6, 3, 19]
+      console.log(arr.sort((a, b) => a - b)) // (6) [2, 3, 6, 7, 19, 24]
+
+      // 如果同时包含 数字，字符串 多种类型 怎么解决 ？
+      const arr2 = ['a', 'b', 283, 92, 1, 4]
+      const res = arr2.sort((a, b) => {
+        if (a === b) {
+          return 0
+        }
+
+        if (typeof a === typeof b) {
+          return a < b ? -1 : 1
+        }
+
+        return typeof a < typeof b ? -1 : 1 // 类型不同 怎么比较的 ？
+      })
+
+      console.log('arr2', arr2) // arr2 (6) [1, 4, 92, 283, 'a', 'b']
+    </script>
+  </body>
+</html>
